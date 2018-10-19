@@ -1,4 +1,3 @@
-% A simplified implementation version of the model from:
 % A Model for Growth of a Single Fungal Hypha Based on Well-Mixed Tanks
 % in Series: Simulation of Nutrient and Vesicle Transport in Aerial Reproductive Hyphae 
 % AUTHORS: Balmant, W. et al., PLoS One 10, e0120307 (2015).
@@ -8,6 +7,8 @@
 % Federal University of Paraná
 % Date: September 28th 2018
 % 
+% Comment: this version solves the model for N taaks and finds the time
+% elapsed for the tip tank to reach twice its length.
 % ________________________________________________________________________
 % KEY INPUT PARAMETERS
 %
@@ -42,7 +43,9 @@ Yl = 1e6;
 % Yphi   - Yield coefficient for production of vesicles from nutrient - g-vesicles.g-nutrient^-1
 Yphi = 0.5; 
 % Deltax - length of the side of each cubic tank - dm 
+global Deltax
 Deltax = 1e-4; 
+% to be used in Events function 
 % lambda  - Maximum possible length of the vesicle producing zone - micrometers 
 lambda = Nv * Deltax;
 % rhox   - biomass dry weight per volume - g-biomass.dm^-3 
@@ -57,7 +60,6 @@ psi = 0.05;
 % wi - concentration of nutrient in tank i
 % phi_i - concentration of vesicles in tank i 
 % n - number of tanks present in the hypha at any time at time t=0 -> n=N
-% 
 % The number of equations to solve depends on n 
 % Number of equations = 2*n + 1
 
@@ -70,6 +72,9 @@ y0=zeros(1,2*N+1);
 y0(end)= Deltax; 
 
 %time span 
-tspan=0:0.01:0.3;
+tspan=0:0.01:10;
 
-[t,y,]=ode45(F, tspan, y0);
+%set Event function in options
+options = odeset('Events',@myEvent);
+
+[t,y,te,ye,ie]=ode45(F,tspan, y0,options);
