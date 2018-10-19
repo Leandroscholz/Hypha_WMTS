@@ -1,3 +1,3 @@
-## Well-mixed tanks in series model for the growth of Aerial reproductive hyphae 
+# Well-mixed tanks in series model for the growth of Aerial reproductive hyphae 
 
-# Reference: W. Balmant, M. H. Sugai-GuÈrios, J. H. Coradin, N. Krieger, A. Furigo Junior, and D. A. Mitchell, ìA Model for Growth of a Single Fungal Hypha Based on Well-Mixed Tanks in Series: Simulation of Nutrient and Vesicle Transport in Aerial Reproductive Hyphae,î PLoS One, vol. 10, no. 3, p. e0120307, Mar. 2015.
+## Reference: W. Balmant, M. H. Sugai-Gu√©rios, J. H. Coradin, N. Krieger, A. Furigo Junior, and D. A. Mitchell, ‚ÄúA Model for Growth of a Single Fungal Hypha Based on Well-Mixed Tanks in Series: Simulation of Nutrient and Vesicle Transport in Aerial Reproductive Hyphae,‚Äù PLoS One, vol. 10, no. 3, p. e0120307, Mar. 2015.
