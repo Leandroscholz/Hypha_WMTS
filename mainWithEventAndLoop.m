@@ -105,7 +105,8 @@ while N <= NMax
         odeSolution = [t y];
     elseif N ~= Ni 
         finalTime(solCounter) = finalTime(solCounter-1)+t(end);
-        odeSolution(:,1) = odeSolution(:,1)+finalTime(solCounter);
+        odeSolution = [t y];
+        odeSolution(:,1) = odeSolution(:,1)+finalTime(solCounter-1);
     end 
     % add to global solution cell array
     solution{solCounter}=odeSolution;
