@@ -1,0 +1,9 @@
+# MATLAB variable files
+*.mat
+
+#MATLAB temporary autosave files
+*.m~
+*.asv
+
+#SWC files
+*.swc
