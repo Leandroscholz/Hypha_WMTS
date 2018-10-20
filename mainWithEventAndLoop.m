@@ -14,9 +14,9 @@
 %
 % N - Initial number of tanks
 % Nv - Number of vesicle producing tanks     
-Ni = 50;
+Ni = 3;
 Nv = 30; 
-NMax = 53;       
+NMax = 50;       
 % OTHER INPUT PARAMETERS 
 % 
 % A      - Cross sectional area of the hypha - dm^2 
