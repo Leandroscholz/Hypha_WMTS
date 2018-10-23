@@ -6,7 +6,7 @@
 % Implementation by: Leandro A. Scholz (leandro dot a dot scholz at gmail dot com)
 % MSc. in Chemical Engineering
 % Federal University of Paraná
-% Date: September 28th 2018
+% Date: October 23rd 2018
 % 
 % Comment: this version solves the model for when N is higher than Nv.
 %________________________________________________________________________
