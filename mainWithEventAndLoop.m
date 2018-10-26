@@ -6,7 +6,7 @@
 % Implementation by: Leandro A. Scholz (leandro dot a dot scholz at gmail dot com)
 % MSc. in Chemical Engineering
 % Federal University of Paraná
-% Date: September 28th 2018
+% Date: October 23rd 2018
 % 
 % Comment: this version solves the model for when N is higher than Nv.
 %________________________________________________________________________
@@ -17,6 +17,7 @@
 Ni = 3;
 Nv = 30; 
 NMax = 250;       
+
 % OTHER INPUT PARAMETERS 
 % 
 % A      - Cross sectional area of the hypha - dm^2 
@@ -87,9 +88,9 @@ while N <= NMax
         y0(end)= Deltax; 
     else 
         y0 = zeros(1,2*N+1);
-        initCondNutrients = odeSolution(end, 2:((length(odeSolution(end,:))-2)/2+1));
-        initCondVesicles = odeSolution(end,((length(odeSolution(end,:))-2)/2+2):end-1);
-        y0(1:(length(odeSolution(end,:))) = horzcat(initCondNutrients,initCondNutrients(end),initCondVesicles,initCondVesicles(end));
+        initCond = odeSolution(end, 2:end-1);
+        mid = length(initCond)/2;
+        y0(1:(length(initCond)+2)) = [initCond(1:mid) initCond(mid) initCond((mid+1):end) initCond(end)];
         y0(end) = Deltax;
     end
     %time span 
@@ -98,7 +99,7 @@ while N <= NMax
     %set Event function in options
     options = odeset('Events',@myEvent);
     
-    disp(sprintf('running %i th ODE solution with %i reactors', solCounter, N));
+    fprintf('running ODE solution # %i with %i reactors', solCounter, N));
     [t,y,te,ye,ie]=ode45(F,tspan, y0,options);
 
     %store the results per ode solution loop. 

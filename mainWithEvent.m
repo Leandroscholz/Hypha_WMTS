@@ -5,7 +5,7 @@
 % Implementation by: Leandro A. Scholz (leandro dot a dot scholz at gmail dot com)
 % MSc. in Chemical Engineering
 % Federal University of Paraná
-% Date: September 28th 2018
+% Date: October 21st 2018
 % 
 % Comment: this version solves the model for N taaks and finds the time
 % elapsed for the tip tank to reach twice its length.
