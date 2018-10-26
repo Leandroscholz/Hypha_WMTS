@@ -15,15 +15,15 @@
 % N - Initial number of tanks
 % Nv - Number of vesicle producing tanks     
 Ni = 3; % Rhizopus oligosporus and Aspergillus giganteus
-%Nv = 30; % Rhizopus oligosporus
-Nv = 40; % Aspergillus giganteus
+Nv = 30; % Rhizopus oligosporus
+%Nv = 40; % Aspergillus giganteus
 NMax = 250;       
 
 % OTHER INPUT PARAMETERS 
 % 
 % A      - Cross sectional area of the hypha - dm^2 
     A = 1e-8; % Rhizopus oligosporus
-%A = 1.6e-7; % Aspergillus giganteus
+    %A = 1.6e-7; % Aspergillus giganteus
 
 % A0     - Cross sectional area of the source tank - dm^2
 % D      - Difusivity of nutrient inside the hypha - dm^2.h^-1
