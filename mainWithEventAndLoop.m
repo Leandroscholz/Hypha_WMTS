@@ -8,51 +8,77 @@
 % Federal University of Paraná
 % Date: October 23rd 2018
 % 
-% Comment: this version solves the model for when N is higher than Nv.
+% Comment: this version solves the model for any N (1 < N < Nv)
 %________________________________________________________________________
 % KEY INPUT PARAMETERS
 %
 % N - Initial number of tanks
 % Nv - Number of vesicle producing tanks     
-Ni = 3;
-Nv = 30; 
+Ni = 3; % Rhizopus oligosporus and Aspergillus giganteus
+%Nv = 30; % Rhizopus oligosporus
+Nv = 40; % Aspergillus giganteus
 NMax = 250;       
 
 % OTHER INPUT PARAMETERS 
 % 
 % A      - Cross sectional area of the hypha - dm^2 
-A = 1e-8; 
+    A = 1e-8; % Rhizopus oligosporus
+%A = 1.6e-7; % Aspergillus giganteus
+
 % A0     - Cross sectional area of the source tank - dm^2
 % D      - Difusivity of nutrient inside the hypha - dm^2.h^-1
-D = 2.48e-4;
+    D = 2.48e-4; % Rhizopus Oligosporus, Aspergillus giganteus and Phycomyces blakesleeanus
+
 % kc     - maximum rate of vesicle consumption - g-vesicles.h^-1
-kc = 2e-8;
+    kc = 2e-8; % Rhizopus oligosporus
+    %kc = 3.2e-7; % Aspergillus giganteus
+
 % Kc     - saturation constant for vesicle consumption - g-vesicles.dm^-3
-Kc = 400;
+    Kc = 400; % Rhizopus oligosporus
+    %Kc = 1400; % Aspergillus giganteus
+
 % kp     - Maximum rate of vesicle production - g-vesicles.dm^-3.h^-1
-kp = 1000; 
+    kp = 1000; % Rhizopus oligosporus
+    %kp = 65;  % Aspergillus giganteus
+
 % Kp     - saturation constant for vesicle production - g-vesicles.dm^-3
-Kp = 10;
+    Kp = 10;  % Rhizopus Oligosporus, Aspergillus giganteus and Phycomyces blakesleeanus
+
 % m      - maintenance coefficient of the hypha for nutrient - g-nutrient.g-biomass^-1.h^-1
-m = 1.8e-3;
+    m = 1.8e-3; % Rhizopus oligosporus
+    %m = 1.8e-2; %Aspergillus giganteus and Phycomyces blakesleeanus
+
 % w0     - concentration of nutrient in the source tank - g-nutrient.dm^-3 
-w0 = 5; 
+    w0 = 5; % Rhizopus oligosporus 
+    %w0 = 60; %Aspergillus giganteus 
+
 % v      - convective velocity inside the hypha - dm.h^-1 
-v = 0.026;
+    v = 0.026; % Rhizopus oligosporus
+    %v = 0.0236; %Aspergillus giganteus 
+
 % Yl     - extension of hyphal length per mass of vesicles consumed - dm.g-vesicles^-1  
-Yl = 1e6; 
+    Yl = 1e6; % Rhizopus oligosporus 
+    %Yl = 6.25e4; % Aspergillus giganteus
+    
 % Yphi   - Yield coefficient for production of vesicles from nutrient - g-vesicles.g-nutrient^-1
-Yphi = 0.5; 
+    Yphi = 0.5; 
+
 % Deltax - length of the side of each cubic tank - dm 
 global Deltax
-Deltax = 1e-4; 
+    Deltax = 1e-4; % Rhizopus oligosporus
+    %Deltax = 4e-4; % Aspergillus giganteus
+    
 % to be used in Events function 
 % lambda  - Maximum possible length of the vesicle producing zone - micrometers 
 lambda = Nv * Deltax;
+
 % rhox   - biomass dry weight per volume - g-biomass.dm^-3 
-rhox = 100; 
+rhox = 100; % Rhizopus Oligosporus, Aspergillus giganteus and Phycomyces blakesleeanus
+
 % psi    - velocity of active transport of vesicles inside the hypha - dm.h^-1 
-psi = 0.05; 
+    psi = 0.05; % Rhizopus oligosporus
+    %psi = 0.007; % Aspergillus giganteus
+
 %   
 %_________________________________________________________________________
 % VARIABLES 
