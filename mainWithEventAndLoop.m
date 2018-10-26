@@ -99,7 +99,8 @@ while N <= NMax
     %set Event function in options
     options = odeset('Events',@myEvent);
     
-    fprintf('running ODE solution # %i with %i reactors', solCounter, N));
+    fprintf('running ODE solution # %i with %i reactors. \n', solCounter, N);
+
     [t,y,te,ye,ie]=ode45(F,tspan, y0,options);
 
     %store the results per ode solution loop. 
@@ -111,9 +112,13 @@ while N <= NMax
         odeSolution = [t y];
         odeSolution(:,1) = odeSolution(:,1)+finalTime(solCounter-1);
     end 
-
+    
+    % echo to inform time 
+    if solCounter ~= 1
+        fprintf('     Current simulation time: %4.2f hours..(+ %4.2f h)\n', finalTime(solCounter),(finalTime(solCounter)-finalTime(solCounter-1)));
+    end
     % add to global solution cell array
-    if solCounter == 1 && rem(finalTime(solCounter),2) <= 2E-1
+    if solCounter == 1 
         solution{solCounter}=odeSolution;
     elseif solCounter ~=1 && rem(finalTime(solCounter),2) <= 1E-1
         solution{end+1}=odeSolution;
@@ -125,3 +130,5 @@ while N <= NMax
     % clear t and y vars 
     clear t y 
 end
+
+summary = resultsSummary(solution,Deltax);
