@@ -16,7 +16,7 @@
 % Nv - Number of vesicle producing tanks     
 Ni = 3;
 Nv = 30; 
-NMax = 2500;       
+NMax = 250;       
 % OTHER INPUT PARAMETERS 
 % 
 % A      - Cross sectional area of the hypha - dm^2 
@@ -87,8 +87,9 @@ while N <= NMax
         y0(end)= Deltax; 
     else 
         y0 = zeros(1,2*N+1);
-        initCond = odeSolution(end, 2:end-1);
-        y0(1:(length(initCond)+1)) = [initCond 0];
+        initCondNutrients = odeSolution(end, 2:((length(odeSolution(end,:))-2)/2+1));
+        initCondVesicles = odeSolution(end,((length(odeSolution(end,:))-2)/2+2):end-1);
+        y0(1:(length(odeSolution(end,:))) = horzcat(initCondNutrients,initCondNutrients(end),initCondVesicles,initCondVesicles(end));
         y0(end) = Deltax;
     end
     %time span 
