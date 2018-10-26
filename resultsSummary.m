@@ -27,3 +27,9 @@ for i=1:nRuns
     % Then stores runResults into summary
     summary(i,1:length(runResults)) = runResults;
 end
+
+figure(1)
+plot(summary(:,1),summary(:,end)*1e5);
+ylabel('Length of the hypha, \mu m')
+xlabel('Simulation time, h')
+

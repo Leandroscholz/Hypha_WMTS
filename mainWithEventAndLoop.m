@@ -120,7 +120,7 @@ while N <= NMax
     % add to global solution cell array
     if solCounter == 1 
         solution{solCounter}=odeSolution;
-    elseif solCounter ~=1 && rem(finalTime(solCounter),2) <= 1E-1
+    elseif solCounter ~=1 && rem(finalTime(solCounter),1) <= 1E-1
         solution{end+1}=odeSolution;
     end
     % increment solCounter and number of tanks
