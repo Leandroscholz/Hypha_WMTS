@@ -15,3 +15,7 @@ Phenomena are denoted by capital letters: (i) Nutrient is provided by the vegeta
 ```mainWithEventAndLoop.m``` is the complete model implementation. N can be any positive integer and the simulation runs until the maximum number of reactors ```NMax``` (defined in row 19 as input parameter) is reached.
 
 ```HyphalTanks.m``` comprises the system of Ordinary Differential Equations (ODEs) to be solved. The number of ODEs per loop depends on the number of reactors. The number of ODEs to solve at any given N is ```2*N+1```. 
+
+![](Roligosporus.png)
+
+![](Agiganteus.png)
